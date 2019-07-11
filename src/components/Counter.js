@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Counter extends Component {
   constructor(props) {
     super(props);
-    this.state = {count: 0};
+    this.state = {count: props.initialCount};
   }
   componentWillReceiveProps(props) {
     this.setState({count: parseInt(props.initialCount)});
@@ -18,11 +18,11 @@ export default class Counter extends Component {
   return (
     <div>
       Count: {this.state.count}
-      <br/>
-      <div style={{marginTop: '50px'}}/>
-      <input type='button' onClick={this.onclick.bind(this, 'add')} value='Increase'/>
-      <input type='button' onClick={this.onclick.bind(this, 'sub')} value='Decrease'/>
-     </div>
+      <div style={{marginTop: '30px'}}/>
+      <input type='button' className="btn btn-outline-success" onClick={this.onclick.bind(this, 'add')} value='Increase'/>
+      &nbsp;
+      <input type='button' className="btn btn-outline-success" onClick={this.onclick.bind(this, 'sub')} value='Decrease'/>
+    </div>
    )
  }
 }
